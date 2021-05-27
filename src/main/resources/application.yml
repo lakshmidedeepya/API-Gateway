@@ -1,0 +1,16 @@
+server:
+  port: 8090
+spring:
+  application:
+     name: gateway-cloud
+  cloud:
+     gateway:
+        routes: 
+        - id: productModule
+          uri: http://localhost:8085
+          predicates: 
+          - Path=/product/**
+        - id: discountModule
+          uri: http://localhost:8086
+          predicates: 
+          - Path=/discount/**
